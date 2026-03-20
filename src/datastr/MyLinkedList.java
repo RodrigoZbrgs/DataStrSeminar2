@@ -26,5 +26,26 @@ public class MyLinkedList {
 			return true;
 		}
 	}
-	
+
+	public void add(char element) throws Exception {
+		if(isFull()) {
+			throw new Exception("Saraksts ir pilns un nevar pievienot elementu");
+		}
+		//tiks pievienots pirmais elementts un tam izveidots pirmais bloks
+		if(howManyElements == 0) {
+			MyNode newNode = new MyNode(element);
+			firstNode = newNode;
+			lastNode = newNode;
+			howManyElements++;
+		}
+		// ja tiek pievienots otrais, tresais... elements
+		//TODO ja velas, tad var optimizet kodu, jo ir rindas, kuras sakrit abos gadijumos
+		else {
+			MyNode newNode = new MyNode(element);
+			newNode.setPreviousNode(lastNode);
+			lastNode.setNextNode(newNode);
+			lastNode = newNode;
+			howManyElements++;
+		}
+	}
 }
