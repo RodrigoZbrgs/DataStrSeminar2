@@ -46,6 +46,19 @@ public class MyLinkedList {
 			lastNode.setNextNode(newNode);
 			lastNode = newNode;
 			howManyElements++;
+			
 		}
+	}
+	
+	public void print() throws Exception {
+		if (isEmpty()) {
+			throw (new Exception("Saraksts ir tukšs un to nevar izprintēt"));	
+		}
+		MyNode currentNode = firstNode;
+		while(currentNode!=null) {
+			System.out.println(currentNode.getElement() + "");
+			currentNode = currentNode.getNextNode();
+		}
+		System.out.println();
 	}
 }
