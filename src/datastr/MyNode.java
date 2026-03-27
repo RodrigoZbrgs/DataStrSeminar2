@@ -1,13 +1,13 @@
 package datastr;
 
-public class MyNode {
-	private char element;
+public class MyNode<Ttype>{
+	private Ttype element;
 	
 	private MyNode nextNode = null;
 	
 	private MyNode previousNode = null;
 
-	public char getElement() {
+	public Ttype getElement() {
 		return element;
 	}
 
@@ -19,7 +19,7 @@ public class MyNode {
 		return nextNode;
 	}
 	
-	public void setElement(char element) { //kad pariesim uz ttype, tad japarbauda.
+	public void setElement(Ttype element) { //kad pariesim uz ttype, tad japarbauda.
 		this.element = element;
 	}
 	
@@ -31,7 +31,7 @@ public class MyNode {
 		this.previousNode = previousNode;
 	}
 	
-	public MyNode(char element) {
+	public MyNode(Ttype element) {
 		setElement(element);
 	}
 	
