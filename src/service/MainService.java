@@ -42,6 +42,11 @@ public class MainService {
 		System.out.println(symbols.search('K')); //2
 		
 		
+		System.out.println("Iztuksot sarakstu un pievieno vienu jaunu");
+		symbols.makeEmpty();
+		symbols.add('Q');
+		symbols.print();
+		
 		}
 		catch(Exception e) {
 			System.out.println(e.getMessage());
