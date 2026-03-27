@@ -115,4 +115,81 @@ public class MyLinkedList {
 		}
 		System.out.println();
 	}
+
+	//1. izveidot remove funkcijas deklaraciju, padodoto poziviju
+	public void remove(int position) throws Exception{
+		if(isEmpty()) {
+			throw (new Exception("Saraksts ir tukšs, tāpēc nevar izdzēst elementus"));
+		}
+		
+		if(position < 0) {
+			throw (new Exception("Nevar izdzēst elementu, jo pozīcija ir negatīva"));
+		}
+		
+		if(position >= howManyElements) {
+			throw (new Exception("Nevar izdzēst elementu, jo pozīcija ir lielāks ka elementu skaits"));
+		}
+	
+
+	//Pirmā bloka dzēšana
+	if(position == 0) {
+		MyNode newFirstNode = firstNode.getNextNode();
+		newFirstNode.setPreviousNode(null);
+		firstNode = newFirstNode;
+		howManyElements--;		
+	}
+	//dzēšam pēdējo bloku
+	else if(position == howManyElements-1)
+	{
+		MyNode newLastNode = lastNode.getPreviousNode();
+		newLastNode.setNextNode(null);
+		lastNode = newLastNode;
+		howManyElements--;
+	}
+	//dzēsam bloku pa vidu
+	else
+	{
+		MyNode currentNode = firstNode;
+		for(int i = 1; i < position; i++) {
+			currentNode = currentNode.getNextNode();
+		}
+		
+		MyNode newLeftNode = currentNode;
+		MyNode newRightNode = currentNode.getNextNode().getNextNode();
+		
+		newLeftNode.setNextNode(newRightNode);
+		newRightNode.setPreviousNode(newLeftNode);
+		
+		howManyElements--;
+		}
+		
+	}
+	
+	public char get(int position) throws Exception {
+		if(isEmpty()) {
+			throw (new Exception("Saraksts ir tukšs, tāpēc nevar izgust elementus"));
+		}
+		
+		if(position < 0) {
+			throw (new Exception("Nevar izgut elementu, jo pozīcija ir negatīva"));
+		}
+		
+		if(position >= howManyElements) {
+			throw (new Exception("Nevar izgut elementu, jo pozīcija ir lielāks ka elementu skaits"));
+		}
+	
+		MyNode currentNode = firstNode;
+		for(int i = 1; i <= position; i++) {
+			currentNode = currentNode.getNextNode()
+;		}
+		
+		return currentNode.getElement();	
+	}
+
+	//search
+	
+	//makeEmpty
+
+
+
 }

@@ -21,6 +21,26 @@ public class MainService {
 		System.out.println("Pievienot elementu pa vidu -2.poz");
 		symbols.add('K', 2); // Z B A K C G W
 		symbols.print();
+		
+		
+		System.out.println("Dzesam elementu no sakuma");
+		symbols.remove(0);
+		symbols.print(); //B A K C G W
+		
+		System.out.println("Izdzesam elementu no beigam");
+		symbols.remove(5);
+		symbols.print();// B A K C G
+		
+		System.out.println("Izdzesam elementu no vidus");
+		symbols.remove(3);
+		symbols.print();//B A K G
+		
+		System.out.println("Izgut elementu no 2 pozicijas");
+		System.out.println(symbols.get(2)); //A
+		
+		
+		
+		
 		}
 		catch(Exception e) {
 			System.out.println(e.getMessage());
