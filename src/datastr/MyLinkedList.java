@@ -38,6 +38,7 @@ public class MyLinkedList {
 			lastNode = newNode;
 			howManyElements++;
 		}
+
 		// ja tiek pievienots otrais, tresais... elements
 		//TODO ja velas, tad var optimizet kodu, jo ir rindas, kuras sakrit abos gadijumos
 		else {
@@ -50,10 +51,63 @@ public class MyLinkedList {
 		}
 	}
 	
+	
+	public void add(char element, int position) throws Exception {
+		if(position < 0) {
+			throw new Exception("Pozicija nevar but mazak par 0");
+		}
+		if(position > howManyElements) {
+			throw new Exception("Pozicija ir lielaka ka atlauta");
+		}
+		//1. ievietot sakuma ka nulto elementu
+		if(position==0) {
+			MyNode newNode = new MyNode(element);
+			firstNode.setPreviousNode(newNode);
+			newNode.setNextNode(firstNode);
+			firstNode=newNode;
+			howManyElements++;
+			
+		}
+		//2.Piekabinat beigas ka pedejo elementu
+		if(position == howManyElements)
+		{
+			add(element);
+		}
+		
+		//3.Iespraudam elementu pa vidu.
+		else
+		{
+			MyNode currentNode = firstNode;
+			for(int i = 1; i <= position; i++) {
+				currentNode = currentNode.getNextNode();
+			}
+			
+			MyNode previousNode = currentNode;
+			MyNode nextNode = currentNode.getNextNode();
+			
+			MyNode newNode = new MyNode(element);
+			newNode.setPreviousNode(previousNode);
+			previousNode.setNextNode(newNode);
+			
+			newNode.setNextNode(nextNode);
+			nextNode.setPreviousNode(newNode);
+			
+			howManyElements++;
+			
+			
+			
+			
+			
+			
+		}
+		
+		
+	}
+	
 	public void print() throws Exception {
 		if (isEmpty()) {
 			throw (new Exception("Saraksts ir tukšs un to nevar izprintēt"));	
-		}
+		} 
 		MyNode currentNode = firstNode;
 		while(currentNode!=null) {
 			System.out.println(currentNode.getElement() + "");
