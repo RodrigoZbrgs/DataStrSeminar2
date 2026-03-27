@@ -38,7 +38,8 @@ public class MainService {
 		System.out.println("Izgut elementu no 2 pozicijas");
 		System.out.println(symbols.get(2)); //A
 		
-		
+		System.out.println("Meklejam elementu K poziciju");
+		System.out.println(symbols.search('K')); //2
 		
 		
 		}
